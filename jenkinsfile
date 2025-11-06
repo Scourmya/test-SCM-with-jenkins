@@ -21,8 +21,11 @@ pipeline {
             }
         }
         stage('Test') {
+            when{
+                expression { param.RUN_TESTS }
+            }
             steps {
-                echo 'Testing...'
+                echo "Testing Branch ${params.BRANCH_VERSION}"
                 // Add your test steps here
             }
         }
